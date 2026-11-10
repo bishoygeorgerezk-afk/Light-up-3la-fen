@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="على فين؟ Light Up — كرنفال اجتماع الشباب والخريجين، 28 نوفمبر 2026.">
+  <title>على فين؟ | Light Up — كرنفال الشباب والخريجين</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --black:#000; --space:#050814; --cyan:#00d5f2; --cyan2:#00e5ff;
+      --gold:#f59e0b; --gold2:#ffb703; --blue:#0077b6; --red:#e63946;
+      --glass:rgba(15,23,42,.75); --line:rgba(255,255,255,.12);
+      --white:#fff; --muted:#cbd5e1;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--black);color:var(--white);font-family:"Cairo",Tahoma,Arial,sans-serif;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 35%,#101b37 0%,#050814 48%,#000 100%)}
+    a{color:inherit;text-decoration:none}
+    .stars,.shooting-stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+    .stars{z-index:-1;background-image:
+      radial-gradient(1px 1px at 8% 18%,#fff 99%,transparent),
+      radial-gradient(1px 1px at 28% 72%,#fff 99%,transparent),
+      radial-gradient(2px 2px at 61% 22%,#fff 99%,transparent),
+      radial-gradient(1px 1px at 82% 62%,#fff 99%,transparent),
+      radial-gradient(1px 1px at 92% 12%,#fff 99%,transparent),
+      radial-gradient(1px 1px at 48% 88%,#fff 99%,transparent),
+      radial-gradient(1px 1px at 15% 84%,#fff 99%,transparent);
+      background-size:320px 280px;opacity:.55;animation:twinkle 5s ease-in-out infinite alternate}
+    .shooting-stars:before,.shooting-stars:after{content:"";position:absolute;width:130px;height:2px;background:linear-gradient(90deg,transparent,rgba(0,229,255,.8),#fff);filter:drop-shadow(0 0 7px #00e5ff);transform:rotate(-35deg);animation:shoot 8s linear infinite;top:15%;left:-20%}
+    .shooting-stars:after{top:58%;animation-delay:4.5s;animation-duration:10s}
+    @keyframes twinkle{to{opacity:.9}}
+    @keyframes shoot{0%{left:-25%;top:10%;opacity:0}8%{opacity:1}25%{left:120%;top:45%;opacity:0}100%{left:120%;opacity:0}}
+    .intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow:hidden;
+      background:radial-gradient(ellipse at 50% 43%,#10233c 0%,#07101f 37%,#02050d 72%,#000 100%);
+      transition:opacity 1.15s ease,filter 1.15s ease,transform 1.15s ease}
+    .intro.hide{opacity:0;filter:blur(22px);transform:scale(1.06);pointer-events:none}
+    .intro:before,.intro:after{content:"";position:absolute;inset:18px;border:1px solid rgba(0,229,255,.11);pointer-events:none}
+    .intro:after{inset:27px;border-color:rgba(245,158,11,.09)}
+    .intro-ambient{position:absolute;width:min(80vw,800px);aspect-ratio:1;border-radius:50%;
+      background:radial-gradient(circle,rgba(0,181,216,.15),rgba(0,119,182,.055) 35%,transparent 69%);
+      filter:blur(12px);animation:ambientPulse 4s ease-in-out infinite}
+    @keyframes ambientPulse{50%{transform:scale(1.13);opacity:.65}}
+    .intro-frame{position:relative;width:min(92vw,680px);text-align:center;padding:25px 24px 20px}
+    .intro-topline,.intro-bottomline{display:flex;justify-content:space-between;gap:14px;color:#7f9bb4;
+      font:600 9px/1.5 Arial,sans-serif;letter-spacing:2.3px}
+    .intro-topline{border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:14px}
+    .intro-bottomline{border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+    .portal{position:relative;width:min(66vw,390px);aspect-ratio:1;margin:25px auto 5px;display:grid;place-items:center}
+    .portal-ring{position:absolute;border-radius:50%;border:1px solid transparent;inset:0}
+    .ring-one{border-top-color:#00e5ff;border-right-color:rgba(0,229,255,.2);box-shadow:0 -3px 24px rgba(0,229,255,.17);animation:orbit 12s linear infinite}
+    .ring-two{inset:13px;border-left-color:rgba(245,158,11,.8);border-bottom-color:rgba(245,158,11,.15);animation:orbit 17s linear infinite reverse}
+    .ring-three{inset:27px;border-top:1px dashed rgba(255,255,255,.35);border-bottom:1px dashed rgba(255,255,255,.13);animation:orbit 25s linear infinite}
+    @keyframes orbit{to{transform:rotate(360deg)}}
+    .portal-core{position:absolute;inset:43px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.11),rgba(2,10,23,.12) 60%,transparent 72%);box-shadow:inset 0 0 45px rgba(0,229,255,.08),0 0 55px rgba(0,181,216,.12)}
+    .portal img{position:relative;width:77%;height:77%;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(0,0,0,.55)) drop-shadow(0 0 13px rgba(0,229,255,.23));animation:logoFloat 4s ease-in-out infinite}
+    @keyframes logoFloat{50%{transform:translateY(-7px) scale(1.015)}}
+    .intro-title{font-size:clamp(23px,4vw,35px);font-weight:900;letter-spacing:.2px;margin-top:9px}
+    .intro-title em{font-style:normal;color:#00d5f2;text-shadow:0 0 18px rgba(0,229,255,.32);direction:ltr;display:inline-block}
+    .intro-subtitle{margin-top:3px;color:#91a9c0;font:600 9px Arial,sans-serif;letter-spacing:4px}
+    .intro-progress{height:2px;width:min(210px,54vw);margin:22px auto 18px;background:rgba(255,255,255,.1);overflow:hidden}
+    .intro-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#0077b6,#00e5ff,#f59e0b);box-shadow:0 0 12px #00e5ff;animation:load 2.35s cubic-bezier(.2,.7,.2,1) forwards}
+    @keyframes load{to{width:100%}}
+    .intro-stars{position:absolute;inset:0;pointer-events:none}
+    .intro-stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 10px #00e5ff;animation:starBlink 2.5s ease-in-out infinite alternate}
+    .intro-stars i:nth-child(1){top:18%;left:16%}.intro-stars i:nth-child(2){top:27%;right:19%;animation-delay:.4s}
+    .intro-stars i:nth-child(3){top:70%;left:12%;animation-delay:.8s}.intro-stars i:nth-child(4){top:78%;right:14%;animation-delay:1.1s}
+    .intro-stars i:nth-child(5){top:45%;left:7%;animation-delay:1.4s}.intro-stars i:nth-child(6){top:54%;right:8%;animation-delay:.6s}
+    .intro-stars i:nth-child(7){top:12%;right:42%;animation-delay:1.8s}.intro-stars i:nth-child(8){bottom:10%;left:49%;animation-delay:1s}
+    @keyframes starBlink{to{opacity:.2;transform:scale(.55)}}
+    .container{width:min(1160px,92%);margin:auto}
+    header{position:relative;padding:25px 0 10px}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:23px;font-weight:900;letter-spacing:-1px}
+    .brand span{color:var(--cyan)}
+    .navlinks{display:flex;gap:22px;color:#c5d0df;font-size:14px}
+    .navlinks a:hover{color:var(--cyan2)}
+    .menu-btn{display:none;background:transparent;border:1px solid var(--line);color:white;border-radius:12px;padding:8px 12px;font:inherit}
+    .hero{min-height:650px;display:grid;grid-template-columns: .9fr 1.45fr .9fr;align-items:center;gap:30px;padding:52px 0 75px}
+    .bishop{text-align:center}
+    .bishop-frame{width:min(230px,100%);aspect-ratio:1;border-radius:50%;padding:7px;margin:auto;border:2px solid var(--gold);box-shadow:0 0 18px #d4af3766,0 0 45px #f59e0b30;overflow:hidden}
+    .bishop-frame img{width:100%;height:100%;object-fit:cover;object-position:center 23%;border-radius:50%}
+    .bishop p{color:var(--muted);font-size:14px;line-height:2;margin:20px auto 0;max-width:260px}
+    .bishop strong{color:#f9d978}
+    .church-wrap{position:relative}
+    .church-wrap:before{content:"";position:absolute;inset:10% -4%;background:radial-gradient(ellipse,rgba(0,181,216,.2),transparent 68%);filter:blur(20px);z-index:-1}
+    .church{width:100%;height:430px;object-fit:cover;object-position:center 44%;border-radius:26px;border:1px solid rgba(255,255,255,.18);box-shadow:0 25px 80px #000,0 0 35px #00b4d822}
+    .hero-copy{text-align:center;margin-top:25px}
+    .eyebrow{color:var(--cyan2);font-weight:700;font-size:14px;letter-spacing:1px}
+    h1{font-size:clamp(35px,5vw,62px);line-height:1.25;margin:10px 0;background:linear-gradient(110deg,#fff 15%,#9cefff 55%,#ffc85c);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy p{color:var(--muted);line-height:2;margin:10px auto;max-width:680px}
+    .location{font-size:14px;color:#b5c5d9}
+    .date-pill{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:10px 19px;border:1px solid #f59e0b88;border-radius:99px;background:#f59e0b12;color:#ffcf70;font-weight:800}
+    .countdown{display:flex;justify-content:center;gap:10px;margin:22px auto 0;direction:ltr}
+    .timebox{min-width:68px;padding:10px 8px;border:1px solid #00d5f255;background:rgba(0,30,48,.55);border-radius:13px;box-shadow:inset 0 0 20px #00d5f20c}
+    .timebox b{display:block;font-size:25px;color:#7ceeff;line-height:1.3;font-variant-numeric:tabular-nums}
+    .timebox span{font-size:11px;color:#9bb5c8}
+    section{padding:65px 0}
+    .section-head{text-align:center;margin-bottom:32px}
+    .section-head .eyebrow{font-size:13px}
+    h2{font-size:clamp(26px,4vw,38px);margin:6px 0 8px}
+    .section-head p{color:var(--muted);margin:0}
+    .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .program-card{position:relative;padding:23px 21px 25px;border-radius:19px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);min-height:220px;transition:transform .3s,border-color .3s,box-shadow .3s;overflow:hidden}
+    .program-card:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(var(--cyan),transparent);opacity:.8}
+    .program-card:hover{transform:translateY(-8px);border-color:#00e5ff99;box-shadow:0 16px 45px #00d5f21b}
+    .program-card:nth-child(2n):hover{border-color:#f59e0b99;box-shadow:0 16px 45px #f59e0b18}
+    .number{font-size:12px;color:var(--cyan);font-weight:800;letter-spacing:2px}
+    .program-card h3{font-size:20px;margin:7px 0 3px}
+    .tagline{color:#f7c66a;font-size:13px;font-weight:700;margin-bottom:12px}
+    .program-card p{font-size:13px;line-height:2;color:#cbd5e1;margin:0}
+    .video-section{padding-top:25px}
+    .video-shell{max-width:850px;margin:auto;padding:10px;border-radius:23px;border:1px solid #00d5f244;background:linear-gradient(135deg,#0a1c2b,#111827);box-shadow:0 20px 65px #00d5f212}
+    video{width:100%;display:block;border-radius:15px;background:#000;max-height:520px}
+    .video-note{text-align:center;color:#aebdce;font-size:13px;margin:14px 0 0}
+    .invite{margin:20px auto 75px;padding:35px 25px;text-align:center;border:1px solid #d4af3755;border-radius:24px;background:radial-gradient(ellipse at top,rgba(245,158,11,.12),transparent 65%),var(--glass)}
+    .invite p{color:var(--muted);line-height:2;margin:8px auto;max-width:720px}
+    footer{border-top:1px solid var(--line);background:#050814;padding:24px 0;color:#9eacc0;font-size:13px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .footer-inner strong{color:#fff}
+    .footer-brand{color:#fff;font-weight:900}.footer-brand span{color:var(--cyan)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:900px){.hero{grid-template-columns:1fr 1.3fr;gap:24px}.hero-copy{grid-column:1/-1;grid-row:2}.bishop{grid-column:1/-1;grid-row:3}.bishop-frame{width:170px}.church{height:360px}.program-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.navlinks{display:none;position:absolute;top:72px;left:0;right:0;background:#08101f;border:1px solid var(--line);padding:15px;border-radius:15px;z-index:5;flex-direction:column;gap:12px}.navlinks.open{display:flex}.menu-btn{display:block}.brand{font-size:20px}.hero{display:flex;flex-direction:column;padding-top:32px;gap:25px;min-height:auto}.church-wrap{width:100%;order:1}.church{height:340px}.hero-copy{order:2;margin-top:0}.bishop{order:3}.countdown{gap:6px}.timebox{min-width:59px;padding:8px 4px}.timebox b{font-size:21px}.program-grid{grid-template-columns:1fr}.program-card{min-height:0}.section-head{margin-bottom:24px}section{padding:48px 0}.footer-inner{justify-content:center;text-align:center;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+    /* زر الشعار الصوتي */
+    .sound-logo{position:fixed;bottom:18px;left:18px;z-index:40;width:64px;height:64px;border-radius:50%;border:1px solid rgba(0,229,255,.45);background:rgba(8,16,31,.85);padding:6px;cursor:pointer;box-shadow:0 0 18px rgba(0,229,255,.25);transition:transform .2s,box-shadow .2s}
+    .sound-logo:hover{transform:scale(1.08)}
+    .sound-logo img{width:100%;height:100%;object-fit:contain;display:block}
+    .sound-logo.playing{box-shadow:0 0 26px rgba(0,229,255,.75);animation:soundPulse 1.2s ease-in-out infinite}
+    @keyframes soundPulse{50%{transform:scale(1.1)}}
+    .portal img{cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="stars"></div><div class="shooting-stars"></div>
+  <div class="intro" id="intro" aria-label="شاشة بداية">
+    <div class="intro-ambient"></div>
+    <div class="intro-stars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="intro-frame">
+      <div class="intro-topline"><span>YOUTH & GRADUATES MEETING</span><span>28 · 11 · 2026</span></div>
+      <div class="portal">
+        <div class="portal-ring ring-one"></div>
+        <div class="portal-ring ring-two"></div>
+        <div class="portal-ring ring-three"></div>
+        <div class="portal-core"></div>
+        <img src="assets/logo-transparent.png" alt="شعار على فين؟ Light Up">
+      </div>
+      <div class="intro-title">على فين؟ <em>LIGHT UP</em></div>
+      <div class="intro-subtitle">A JOURNEY THAT LEADS TO LIGHT</div>
+      <div class="intro-progress"><span></span></div>
+      <div class="intro-bottomline"><span>DISCOVER YOUR WAY</span><span>PREPARE TO BE LIT</span></div>
+    </div>
+  </div>
+
+  <header class="container">
+    <nav>
+      <a class="brand" href="#home">على فين؟ <span>LIGHT UP</span></a>
+      <div class="navlinks" id="navlinks">
+        <a href="#home">الرئيسية</a><a href="#program">برنامج الكرنفال</a><a href="#video">فيديو الكرنفال</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <aside class="bishop reveal">
+        <div class="bishop-frame"><img src="assets/bishop.jpg" alt="صورة نيافة الأنبا تيموثاؤس"></div>
+        <p>تحت رعاية سيدنا المحبوب<br><strong>نيافة الحبر الجليل الأنبا تيموثاؤس</strong><br>أسقفنا</p>
+      </aside>
+
+      <div class="church-wrap reveal">
+        <img class="church" src="assets/church.jpg" alt="كاتدرائية السيدة العذراء ومار يوحنا الرسول بالزقازيق">
+      </div>
+
+      <div class="hero-copy reveal">
+        <div class="eyebrow">اجتماع للرب — خدمة الشباب والخريجين</div>
+        <h1>على فين؟ <span style="white-space:nowrap">Light Up</span></h1>
+        <p>مستنيينكم في رحلة مختلفة… لحظات وأسئلة وتجارب يمكن تنوّر لك الطريق.</p>
+        <div class="location">مطرانية الزقازيق ومنيا القمح<br>كاتدرائية السيدة العذراء ومار يوحنا الرسول بالزقازيق</div>
+        <div class="date-pill">✦ السبت 28 نوفمبر 2026</div>
+        <div class="countdown" id="countdown" aria-label="الوقت المتبقي">
+          <div class="timebox"><b id="days">--</b><span>أيام</span></div>
+          <div class="timebox"><b id="hours">--</b><span>ساعات</span></div>
+          <div class="timebox"><b id="minutes">--</b><span>دقائق</span></div>
+          <div class="timebox"><b id="seconds">--</b><span>ثواني</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="program">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">DISCOVER • EXPERIENCE • LIGHT UP</div>
+          <h2>رحلتك جوّه الكرنفال</h2>
+          <p>ست محطات… وكل محطة ليها حكاية</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card reveal"><div class="number">01 / SHOW</div><h3>الإنذار الأخير (00:01)</h3><div class="tagline">الجرس شغال!</div><p>امتى؟ منعرفش.. بس هنشوفه في سفر الرؤيا اللي كتبه مار يوحنا الحبيب من أكثر من 2000 سنة. فريق Joy Team هيقدمهولنا بشكل جديد في عرض مسرح أسود وهاند مايم.</p></article>
+          <article class="program-card reveal"><div class="number">02 / EXPERIENCE</div><h3>Room 305</h3><div class="tagline">الباب مفتوح... ادخل</div><p>عمرك فكرت إنت مين بجد؟ طب فكرت قبل كده إنك ممكن تكون بتعمل حاجة غلط لمجرد إن كل الناس حواليك بتعملها؟ أهلاً بيكم في الغرفة 305.</p></article>
+          <article class="program-card reveal"><div class="number">03 / JOURNEY</div><h3>The Wave</h3><div class="tagline">رحلة إلى الأعماق — خد نفس عميق</div><p>فقرة تسلط الضوء على الصراع الداخلي للإنسان المعاصر بين صخب السطح وتوهانه، وبين السكون الحقيقي والقرب من الله من خلال محاكاة حية لتجارب شخصيات كتابية.</p></article>
+          <article class="program-card reveal"><div class="number">04 / CHOICE</div><h3>Face Off</h3><div class="tagline">مين ورا القناع؟</div><p>بين زحام أعماق النفس البشرية وتخبط مواقفها، نقف كل يوم على حافة الاختيار: إما أن يجرنا التشويش نحو الخطأ... أو أن ننتصر للصح بتوجيه روح الله الساكن فينا.</p></article>
+          <article class="program-card reveal"><div class="number">05 / MYSTERY</div><h3>Escape Room</h3><div class="tagline">اخرج لو تقدر!</div><p>من زمن بعيد، كان فيه بيت قديم واقف على أطراف المدينة، بيت محدش بيجرؤ يقرب منه... وكانت فيه حقيقة واحدة محدش قدر يفسرها: كل شخص دخل البيت اختفى بعدها من غير أي أثر!</p></article>
+          <article class="program-card reveal"><div class="number">06 / GAME TIME</div><h3>Fun Rush</h3><div class="tagline">اللعب بدأ!</div><p>وسط الضحك والحماس والتحديات، كل لحظة ممكن تقلب الموازين، وكل لعبة وراها حكاية، وكل تحدي محتاج سرعة وذكاء وروح فريق.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="video">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">THE CARNIVAL VIDEO</div><h2>شوف الحكاية… واستعد للنور</h2><p>فيديو كرنفال على فين؟ Light Up</p></div>
+        <div class="video-shell reveal">
+          <video controls playsinline preload="metadata" poster="assets/logo.jpg">
+            <source src="assets/carnival-video.mp4" type="video/mp4">
+            المتصفح لا يدعم تشغيل الفيديو.
+          </video>
+        </div>
+        <p class="video-note">شغّل الفيديو واستمتع ❤️</p>
+      </div>
+    </section>
+
+    <div class="container invite reveal">
+      <div class="eyebrow">YOU ARE INVITED</div>
+      <h2>مستنيينك… على فين؟</h2>
+      <p>يتشرف اجتماع الشباب والخريجين بدعوة نيافتك لحضور كرنفال <strong style="color:#ffca69">على فين — Light Up</strong>.</p>
+      <div class="date-pill">السبت 28 / 11 / 2026</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">على فين؟ <span>LIGHT UP</span></div>
+      <div>خدمة الشباب بالكاتدرائية</div>
+      <div>28 نوفمبر 2026 · جميع الحقوق محفوظة ©</div>
+    </div>
+  </footer>
+
+  <audio id="logoSound" src="assets/logo-sound.mp3" preload="auto"></audio>
+  <button class="sound-logo" id="soundLogo" aria-label="تشغيل صوت الشعار" title="اضغط لتشغيل الصوت">
+    <img src="assets/logo-transparent.png" alt="شعار">
+  </button>
+
+  <script>
+    // صوت الشعار: يحاول يشتغل تلقائياً، ولو المتصفح منع ذلك يشتغل عند أول ضغطة، وكمان عند الضغط على الشعار.
+    (function () {
+      const audio = document.getElementById('logoSound');
+      const btn = document.getElementById('soundLogo');
+      const introLogo = document.querySelector('.portal img');
+      let started = false;
+
+      function setState(on) { btn.classList.toggle('playing', on); }
+      audio.addEventListener('play', () => setState(true));
+      audio.addEventListener('pause', () => setState(false));
+      audio.addEventListener('ended', () => setState(false));
+
+      function toggle() {
+        if (audio.paused) { audio.currentTime = 0; audio.play().catch(() => {}); }
+        else { audio.pause(); }
+      }
+      btn.addEventListener('click', e => { e.stopPropagation(); started = true; toggle(); });
+      if (introLogo) introLogo.addEventListener('click', e => { e.stopPropagation(); started = true; toggle(); });
+
+      // محاولة التشغيل التلقائي
+      audio.play().then(() => { started = true; }).catch(() => {
+        // لو اتمنع: يشتغل مع أول لمسة أو ضغطة في أي مكان
+        const first = () => { if (!started) { started = true; audio.play().catch(() => {}); } };
+        ['pointerdown', 'keydown', 'touchstart'].forEach(ev => document.addEventListener(ev, first, { once: true }));
+      });
+    })();
+
+    // شاشة البداية: الشعار يظهر أولاً ثم يكشف الموقع بسلاسة.
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('intro').classList.add('hide'), 2500);
+      setTimeout(() => document.getElementById('intro').remove(), 3700);
+    });
+
+    // عداد تنازلي حتى بداية يوم الكرنفال بتوقيت القاهرة.
+    const target = new Date('2026-11-28T00:00:00+02:00').getTime();
+    const pad = n => String(n).padStart(2, '0');
+    function updateCountdown(){
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000); diff %= 86400000;
+      const h = Math.floor(diff / 3600000); diff %= 3600000;
+      const m = Math.floor(diff / 60000); diff %= 60000;
+      const s = Math.floor(diff / 1000);
+      document.getElementById('days').textContent = d;
+      document.getElementById('hours').textContent = pad(h);
+      document.getElementById('minutes').textContent = pad(m);
+      document.getElementById('seconds').textContent = pad(s);
+    }
+    updateCountdown(); setInterval(updateCountdown, 1000);
+
+    // إظهار العناصر تدريجياً أثناء التمرير.
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('navlinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.navlinks a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('navlinks').classList.remove('open');
+    }));
+  </script>
+</body>
+</html>
